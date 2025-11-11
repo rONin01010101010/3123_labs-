@@ -1,0 +1,46 @@
+COMP 3123 – Full Stack Development I – Lab Week 09
+
+React JS
+
+References:
+
+-   https://www.w3schools.com/react/react_getstarted.asp
+
+-   https://reactjs.org/docs/create-a-new-react-app.html
+
+React JS Environment Setup:
+
+1.  Required NPM or node.js (Your machine is already equipped with
+    node). To verify execute following command on command line
+
+  $ node –version
+
+2.  Create new ReactJS application name labweek09
+
+  $ npx create-react-app labweek09
+
+3.  Execute the labweek09 exercise
+
+  $ cd labweek09
+
+  $ npm start
+
+[Graphical user interface, application Description automatically
+generated]
+
+Exercise
+
+Update the default layout what you see in above image to display
+following information by using state or props object.
+
+[A picture containing company name Description automatically generated]
+
+Submission Details
+
+1.  After modifying the application upload ZIP having name labweek09.zip
+    to black board on or before deadline. Also submit screenshots of
+    your browser screen.
+
+2.  Submit GitHub repository line on Black Board
+
+3.  Please delete node_modules folder before upload
