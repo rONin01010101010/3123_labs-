@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const UserList = () => {
   const [users, setUsers] = useState([]);
@@ -6,12 +7,26 @@ const UserList = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    // Fetch data from your API
+    // Fetch data from Random User API
     const fetchUsers = async () => {
       try {
-        const response = await fetch('YOUR_API_ENDPOINT_HERE');
-        const data = await response.json();
-        setUsers(data);
+        const response = await axios.get('https://randomuser.me/api/?results=10');
+        const userData = response.data.results.map(user => ({
+          id: user.login.uuid,
+          name: `${user.name.first} ${user.name.last}`,
+          username: user.login.username,
+          gender: user.gender,
+          timezone: `${user.location.timezone.description} (${user.location.timezone.offset})`,
+          address: `${user.location.street.number} ${user.location.street.name}, ${user.location.city}, ${user.location.state}, ${user.location.country} ${user.location.postcode}`,
+          email: user.email,
+          birthDate: new Date(user.dob.date).toLocaleDateString(),
+          age: user.dob.age,
+          registerDate: new Date(user.registered.date).toLocaleDateString(),
+          phone: user.phone,
+          cell: user.cell,
+          avatar: user.picture.large
+        }));
+        setUsers(userData);
         setLoading(false);
       } catch (err) {
         setError(err.message);
